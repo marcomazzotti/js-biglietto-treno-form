@@ -8,3 +8,41 @@
 
 // alert ('ciao')
 
+// MILESTONE 1
+const submitBtn = document.getElementById("submit");
+submit.addEventListener("click", function() {
+
+  const userNameInput = document.getElementById("name");
+  console.log(userNameInput.value)
+
+  const userAge = document.getElementById("age");
+  console.log(userAge.value)
+
+  const userDistance = document.getElementById("km");
+  console.log(userDistance.value)
+
+  //prezzo base
+  const priceKm = 0.21;
+  let fullPrice = (userDistance * priceKm);
+
+  let result = ""
+
+  //prezzo scontato 
+  if (userAge <= 18) {
+    const discount = (fullPrice * 20 / 100);
+    result = (fullPrice - discount);
+    console.log(result);
+
+  } else if (userAge >= 65) {
+    const discount = (fullPrice * 40 / 100);
+    result = (fullPrice - discount);
+    console.log(result);
+
+  } else {
+    result = fullPrice
+    console.log(result);
+  }
+})
+
+
+
