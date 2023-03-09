@@ -16,33 +16,32 @@ submit.addEventListener("click", function() {
   console.log(userNameInput.value)
 
   const userAge = document.getElementById("age");
-  console.log(userAge.value)
+
+  console.log(userAge.value, typeof userAge.value)
 
   const userDistance = document.getElementById("km");
-  console.log(userDistance.value)
+  console.log(userDistance.value, typeof userDistance.value)
 
   //prezzo base
-  const priceKm = 0.21;
-  let fullPrice = (userDistance * priceKm);
-
-  let result = ""
+  const basePrice = 0.21 * userDistance.value;
 
   //prezzo scontato 
-  if (userAge <= 18) {
-    const discount = (fullPrice * 20 / 100);
-    result = (fullPrice - discount);
-    console.log(result);
+  if (userAge.value <= 18) {
+    discountPrice = basePrice - (basePrice / 100 * 20)
+    console.log(discountPrice)
 
-  } else if (userAge >= 65) {
-    const discount = (fullPrice * 40 / 100);
-    result = (fullPrice - discount);
-    console.log(result);
+  } else if (userAge.value >= 65) {
+    discountPrice = basePrice - (basePrice / 100 * 40)
+    console.log(discountPrice)
 
   } else {
-    result = fullPrice
-    console.log(result);
+    discountPrice = basePrice
+    console.log(discountPrice);
   }
 })
+
+//output
+document.getElementById('price').innerHTML = "Il suo biglietto costa:" + " " + discountPrice.toFixed(2);
 
 
 
